@@ -1,16 +1,3 @@
-#Calculate Feature 2
-
-scoreboard players operation #vIn2 swMath_V = #x0_1 swMath_V
-scoreboard players operation #vIn swMath_V = #x0_0 swMath_V
-function math:classes/core/trig/arctan2_rad
-function math:classes/core/util/swap
-function math:classes/core/util/rad2deg
-scoreboard players operation #x0_2 swMath_V = #vOut swMath_V
-execute if score #x0_2 swMath_V matches 1800000.. run scoreboard players remove #x0_2 swMath_V 3600000
-
-
-
-
 #Process Layer 0
 
 scoreboard players operation #x0_0 swMath_V /= #C_10 swMath_C

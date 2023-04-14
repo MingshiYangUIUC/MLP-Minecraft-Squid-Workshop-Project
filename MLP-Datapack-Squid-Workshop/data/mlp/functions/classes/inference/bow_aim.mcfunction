@@ -27,6 +27,15 @@ scoreboard players operation #x0_0 swMath_V = #vOut swMath_V
 scoreboard players operation #x0_1 swMath_V = yt swMath_V
 scoreboard players operation #x0_1 swMath_V -= y0 swMath_V
 
+#Calculate Feature 2 as arctan of y,x
+scoreboard players operation #vIn2 swMath_V = #x0_1 swMath_V
+scoreboard players operation #vIn swMath_V = #x0_0 swMath_V
+function math:classes/core/trig/arctan2_rad
+function math:classes/core/util/swap
+function math:classes/core/util/rad2deg
+scoreboard players operation #x0_2 swMath_V = #vOut swMath_V
+execute if score #x0_2 swMath_V matches 1800000.. run scoreboard players remove #x0_2 swMath_V 3600000
+
 # evaluate pitch angle using the network
 function mlp:classes/networks/mlp_bow_asolver
 
