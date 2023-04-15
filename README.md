@@ -4,6 +4,8 @@
 
 # Introduction
 This datapack contains some experimental _neural networks_ implemented by scoreboard. \
+Here is a place to test and add some interesting neural networks. \
+The networks are trained with Pytorch and translated to scoreboard operations in functions.
 
 
 
@@ -19,9 +21,9 @@ Don't forget to install the [Math Datapack](https://github.com/MingshiYangUIUC/M
 
 # How to use
 
-Check out the features below.
+Check out the features below. Feel free to suggest more!
 ## 1. Bow&Arrow Aimbot (Stationary Target)
-An implementation of aimbot using a _Multilayer Perceptron_ to help the player to aim with bow and arrow.
+An implementation of aimbot with a pretrained _Multilayer Perceptron_ to help the player aim with bow and arrow.
 ### Usage
 
 - Set a target
@@ -35,10 +37,32 @@ The player will rotate to the direction determined by the Aimbot.
 
 ### Specs
 
-The MLP takes input of size 3, performs 1446 scoreborad operations, and output 1 scalar. There are 2 hidden layers with sizes 16. Hidden layers and output layer have ReLU activation.
+- The MLP takes input of size 3, performs 1446 scoreborad operations, and output 1 scalar. There are 2 hidden layers with sizes 16. Hidden layers and output layer have ReLU activation.
 
-The first and second input is hozirontal and vertical distance components, the Aimbot uses these to determine the pitch angle when facing the target and uses it as the thrid input. The output is negative of desired x_rotation. The values are scaled up to keep accuracy.
+- The first and second inputs are hozirontal and vertical distance components, the Aimbot uses these to determine the pitch angle when facing the target and uses it as the thrid input. The output is negative of desired x_rotation. The values are scaled up to keep accuracy.
 
+## 2. Advanced Bow&Arrow Aimbot (Moving Target)
+Advanced aimbot with a pretrained _Multilayer Perceptron_ to help the player aim with bow and arrow.\
+It predicts the time needed for arrow to reach the target, and aim at future position of target based on current velocity.
+
+### Usage
+
+- Set a target
+
+    /tag @e[YOUR CHOICE] add target
+- Call the Aimbot
+
+    /function mlp:classes/inference/bow_aim_1.5
+
+The player will rotate to the direction determined by the Aimbot.
+
+### Specs
+
+- The MLP takes input of size 6, performs 12409 scoreborad operations, and output 1 scalar. There are 3 hidden layers with sizes 64, 32, and 16. Hidden layers and output layer have ReLU activation.
+
+- The first and second inputs are hozirontal and vertical distance components. The third, forth and fifth inputs are target's velocity components, defined along 3 axes: axis 1 is projection of distance vector on x-z plane; axis 2 is the y axis; the third axis is the cross product of axis 2 and axis 1. The sixth input is distance magnitude divided by 3, which is the arrow's speed. The values are scaled up to keep accuracy.
+
+- After the future position is obtained by current position + time * current velocity, algorithm of the previous bot is used to obtain desired player rotation.
 
 # Terms of Use
 
