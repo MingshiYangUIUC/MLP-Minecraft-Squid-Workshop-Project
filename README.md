@@ -8,7 +8,7 @@ Here is a place to test and add some interesting neural networks. \
 The networks are trained with Pytorch and translated to scoreboard operations in functions.
 
 Disclaimer:
-Due to randomness in arrow launch and target motion, the aim bots cannot be fully accurate (unless we hack Minecraft RNG). Like when you normally shoot, accuracy decreases fast with increasing distance between shooter and target. 
+Due to randomness in arrow launch and target motion, as well as scoreboard precision errors, the aim bots cannot be fully accurate (unless we hack Minecraft RNG). Like when you normally shoot, accuracy decreases fast with increasing distance between shooter and target. 
 
 
 # Installation
@@ -38,6 +38,7 @@ An implementation of aimbot with a pretrained _Multilayer Perceptron_ to help th
 The player will rotate to the direction determined by the Aimbot.
 
 ### Specs
+- Network RMSE: ~0.01 degrees.
 
 - The MLP takes input of size 3, performs 1446 scoreborad operations, and output 1 scalar. There are 2 hidden layers with sizes 16. Hidden layers and output layer have ReLU activation.
 
@@ -59,6 +60,7 @@ It predicts the time needed for arrow to reach the target, and aim at future pos
 The player will rotate to the direction determined by the Aimbot.
 
 ### Specs
+- Network RMSE: ~0.01 ticks.
 
 - The MLP takes input of size 6, performs 12409 scoreborad operations, and output 1 scalar. There are 3 hidden layers with sizes 64, 32, and 16. Hidden layers and output layer have ReLU activation.
 
