@@ -1,21 +1,21 @@
 # Aiming Algotithm
 This algorithm can aim at a moving target. Note that it can be directly used in Minecraft.
 
-## Objective: 
+## Objective
 Hit a taret currently at position P and is moving with constant velocity V
 
-## Known Knowledge: 
+## Known Knowledge
 We know how to aim at a stationary target, and how much time does an arrow need to hit such target. 
 
-## Framework:
+## Framework
 If there exist a position P^ where the arrow and the target spend the same time T^ to get there, the arrow should aim at this position.
 
-## Question: 
+## Question
 How to find T^ and P^?
 
-## Solution: 
+## Solution
 Prepare by computing T, the time it takes for arrow to reach the target's current position P.
-Define a learning rate R > 0, a accuracy threashold E, and do the following iteratively.
+Define a learning rate R > 0, an accuracy threashold E, and do the following iteratively.
 
 	1. Compute the future postion of the moving target after time T, P' = P + V * T;
 	2. Compute the time T', the time it takes for arrow to reach the future position;
