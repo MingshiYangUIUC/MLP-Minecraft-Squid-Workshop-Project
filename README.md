@@ -45,7 +45,8 @@ The player will rotate to the direction determined by the Aimbot.
 
 ## 2. Advanced Bow&Arrow Aimbot (Moving Target)
 Advanced aimbot with a pretrained _Multilayer Perceptron_ to help the player aim with bow and arrow.\
-It predicts the time needed for arrow to reach the target, and aim at future position of target based on current velocity.
+It predicts the time needed for arrow to reach the target, and aim at future position of target based on current velocity.\
+The training data is prepared using [this algorithm](https://github.com/MingshiYangUIUC/MLP-Minecraft-Squid-Workshop-Project/blob/main/Aiming-Algorithm.md).
 
 ### Usage
 
