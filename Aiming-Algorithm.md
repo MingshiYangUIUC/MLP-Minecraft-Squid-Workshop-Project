@@ -24,7 +24,7 @@ Define a learning rate R > 0, a accuracy threashold E, and do the following iter
   
 After performing steps 1 through 4 for a certain number of iterations, we arrive at two outcomes:
 
-	a. |T-T'| cannot be smaller than E. It means the solution cannot be found, the iteration progresses slowly, or the target is out of range.
-	b. |T-T'| can be smaller than E. It means an approximate solution close to T^ is found, with difference also smaller than E.
+	(a). |T-T'| < E. It means T ≈ T^ ≈ T', an approximate solution close to T^ is found, with difference also smaller than E.
+	(b). |T-T'| >=E. It means the solution of desired accuracy cannot be found, the iteration progresses slowly, or the target is out of range.
 
-If condition b is satisfied, approximate solution of P^ is P' from the last iteration.
+If condition (a) is satisfied, approximate solution of P^ is P' from the last iteration.
