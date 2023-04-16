@@ -38,9 +38,9 @@ An implementation of aimbot with a pretrained _Multilayer Perceptron_ to help th
 The player will rotate to the direction determined by the Aimbot.
 
 ### Specs
-- Network RMSE: ~0.01 degrees.
+- Network RMSE: ~0.006 degrees.
 
-- The MLP takes input of size 3, performs 1446 scoreborad operations, and output 1 scalar. There are 2 hidden layers with sizes 16. Hidden layers have ReLU activation.
+- The MLP takes input of size 3, performs 1446 scoreboard operations, and output 1 scalar. There are 2 hidden layers with sizes 16. Hidden layers have ReLU activation.
 
 - The first and second inputs are hozirontal and vertical distance components, the Aimbot uses these to determine the pitch angle when facing the target and uses it as the thrid input. The output is negative of desired x_rotation. The values are scaled up to keep accuracy.
 
@@ -60,9 +60,9 @@ It predicts the time needed for arrow to reach the target, and aim at future pos
 The player will rotate to the direction determined by the Aimbot.
 
 ### Specs
-- Network RMSE: ~0.01 ticks.
+- Network RMSE: ~0.006 ticks.
 
-- The MLP takes input of size 6, performs 12409 scoreborad operations, and output 1 scalar. There are 3 hidden layers with sizes 64, 32, and 16. Hidden layers and output layer have ReLU activation.
+- The MLP takes input of size 6, performs 12409 scoreboard operations, and output 1 scalar. There are 3 hidden layers with sizes 64, 32, and 16. Hidden layers and output layer have ReLU activation.
 
 - The first and second inputs are hozirontal and vertical distance components. The third, forth and fifth inputs are target's velocity components, defined along 3 axes: axis 1 is projection of distance vector on x-z plane; axis 2 is the y axis; the third axis is the cross product of axis 2 and axis 1. The sixth input is distance magnitude divided by 3, which is the arrow's speed. The values are scaled up to keep accuracy.
 
