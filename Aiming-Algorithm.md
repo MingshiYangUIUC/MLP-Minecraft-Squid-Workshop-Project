@@ -14,15 +14,16 @@ If there exist a position P^ where the arrow and the target spend the same time 
 How to find T^ and P^?
 
 ## Solution: 
-Prepare by computing T, the time it takes for arrow to reach the target's current position P, and do the following iteratively.
+Prepare by computing T, the time it takes for arrow to reach the target's current position P.
+Define a learning rate R > 0, a accuracy threashold E, and do the following iteratively.
 
-	1. Compute the future postion of the moving target after time T, P' = P + V * T; \
-	2. Compute the time T', the time it takes for arrow to reach the future position; \
-	3. Compute the time difference dT = T' - T; \
-	4. Modify T by adding scaled dT: T <- T + r * dT (r>0);
+	1. Compute the future postion of the moving target after time T, P' = P + V * T;
+	2. Compute the time T', the time it takes for arrow to reach the future position;
+	3. Compute the time difference dT = T' - T;
+	4. Modify T by adding scaled dT: T <- T + R * dT (R>0);
   
-By repeating steps 1-4, we reach two conditions:
-	a. |T-T'| is larger than a theashold after some iterations. It means the solution cannot be found, the iteration progresses slowly, or the target is out of range.
-	b. |T-T'| is smaller than a theashold after some iterations. It an approximate solution close to T^ is found.
+After performing steps 1 through 4 for a certain number of iterations, we arrive at two outcomes:
+	a. |T-T'| cannot be smaller than E. It means the solution cannot be found, the iteration progresses slowly, or the target is out of range.
+	b. |T-T'| can be smaller than E. It means an approximate solution close to T^ is found, with difference also smaller than E.
 
-If condition b is reached, compute the future position P^ = P + V * T^ using the approximate solution, and aim at P^.
+If condition b is satisfied, approximate solution of P^ is P' from the last iteration.
