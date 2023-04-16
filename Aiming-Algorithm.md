@@ -23,6 +23,7 @@ Define a learning rate R > 0, a accuracy threashold E, and do the following iter
 	4. Modify T by adding scaled dT: T <- T + R * dT (R>0);
   
 After performing steps 1 through 4 for a certain number of iterations, we arrive at two outcomes:
+
 	a. |T-T'| cannot be smaller than E. It means the solution cannot be found, the iteration progresses slowly, or the target is out of range.
 	b. |T-T'| can be smaller than E. It means an approximate solution close to T^ is found, with difference also smaller than E.
 
