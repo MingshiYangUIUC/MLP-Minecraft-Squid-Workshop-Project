@@ -7,8 +7,7 @@ This datapack contains some experimental _neural networks_ implemented by scoreb
 Here is a place to test and add some interesting neural networks. \
 The networks are trained with Pytorch and translated to scoreboard operations in functions.
 
-Disclaimer:
-Due to randomness in arrow launch and target motion, as well as scoreboard precision errors, the aim bots cannot be fully accurate (unless we hack Minecraft RNG). Like when you normally shoot, accuracy decreases fast with increasing distance between shooter and target. 
+*Disclaimer: Due to randomness in arrow launch and target motion, as well as loss of precision during scoreboard operations, the aim bots cannot be fully accurate (unless we hack Minecraft RNG). Like when you normally shoot, accuracy decreases fast with increasing distance between shooter and target.*
 
 
 # Installation
