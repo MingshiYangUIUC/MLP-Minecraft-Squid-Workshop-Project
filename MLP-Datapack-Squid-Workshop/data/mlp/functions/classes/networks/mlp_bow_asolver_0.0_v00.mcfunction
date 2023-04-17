@@ -1525,3 +1525,4 @@ scoreboard players operation #x3_0 swMath_V += #bl_0 swMath_V
 
 
 
+scoreboard players operation #x_out swMath_V = #x3_0 swMath_V 

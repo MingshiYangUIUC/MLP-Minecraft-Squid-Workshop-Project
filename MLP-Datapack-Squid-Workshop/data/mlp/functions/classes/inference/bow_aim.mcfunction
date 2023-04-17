@@ -10,9 +10,12 @@ execute store result score z0 swMath_V run data get entity @s Pos[2] 10000
 # add feet-eye distance if executor is player.
 execute if entity @s[type=player] run scoreboard players add y0 swMath_V 15200
 
-execute store result score xt swMath_V run data get entity @e[tag=target,limit=1] Pos[0] 10000
-execute store result score yt swMath_V run data get entity @e[tag=target,limit=1] Pos[1] 10000
-execute store result score zt swMath_V run data get entity @e[tag=target,limit=1] Pos[2] 10000
+#execute store result score xt swMath_V run data get entity @e[tag=target,limit=1] Pos[0] 10000
+#execute store result score yt swMath_V run data get entity @e[tag=target,limit=1] Pos[1] 10000
+#execute store result score zt swMath_V run data get entity @e[tag=target,limit=1] Pos[2] 10000
+
+execute if entity @s[tag=eye] as @e[tag=target,limit=1] run function mlp:classes/supp/geteyepos
+execute if entity @s[tag=feet] as @e[tag=target,limit=1] run function mlp:classes/supp/getfeetpos
 
 # calculate horizontal component of distance
 scoreboard players operation #vAi swMath_V = xt swMath_V
@@ -42,7 +45,7 @@ function mlp:classes/networks/mlp_bow_asolver
 # change player's rotation using tp with an helper entity
 summon marker ~ ~ ~ {Tags:["guide"]}
 execute as @e[type=marker,tag=guide,limit=1] at @s run tp @s ~ ~ ~ facing entity @e[tag=target,limit=1]
-execute store result entity @e[type=marker,tag=guide,limit=1] Rotation[1] float -0.0001 run scoreboard players get #x3_0 swMath_V
+execute store result entity @e[type=marker,tag=guide,limit=1] Rotation[1] float -0.0001 run scoreboard players get #x_out swMath_V
 execute as @e[type=marker,tag=guide,limit=1] at @s run tp @s ^ ^ ^1
 tp @s ~ ~ ~ facing entity @e[type=marker,tag=guide,limit=1]
 kill @e[type=marker,tag=guide,limit=1]
