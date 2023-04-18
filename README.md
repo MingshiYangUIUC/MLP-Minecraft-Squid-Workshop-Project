@@ -70,8 +70,8 @@ The player will rotate to the direction determined by the Aimbot.
 ### Specs
 - Network RMSE: ~0.006 ticks.
 
-- The latest network _v01_ is considerably smaller in parameter size, and performs matches _v00_.\
-Networks except the latest version are stored under old_versions subfolder.
+- The latest network _v01_ is considerably smaller in parameter size, and it's performance matches the previous network _v00_.\
+Networks except the latest version are stored under old_versions subfolder.\
 See MLP-Datapack-Squid-Workshop/data/mlp/functions/classes/networks/updatelog.txt for more information.
 
 - The MLP takes input of size 6, performs thousands of scoreboard operations, and output 1 scalar. There are several hidden layers with varying sizes. Hidden layers and output layer have ReLU activation.
