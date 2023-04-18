@@ -13,13 +13,14 @@ execute store result score z0 swMath_V run data get entity @s Pos[2] 10000
 
 # add feet-eye distance if executor is player.
 execute if entity @s[type=player] run scoreboard players add y0 swMath_V 15200
+execute if entity @s[type=armor_stand] run scoreboard players add y0 swMath_V 15200
 
 #execute store result score xt swMath_V run data get entity @e[tag=target,limit=1] Pos[0] 10000
 #execute store result score yt swMath_V run data get entity @e[tag=target,limit=1] Pos[1] 10000
 #execute store result score zt swMath_V run data get entity @e[tag=target,limit=1] Pos[2] 10000
 execute if entity @s[tag=eye] as @e[tag=target,limit=1] run function mlp:classes/supp/geteyepos
 execute if entity @s[tag=feet] as @e[tag=target,limit=1] run function mlp:classes/supp/getfeetpos
-
+#tellraw @a [{"score":{"name": "yt", "objective": "swMath_V"}}]
 
 # calculate horizontal component of distance
 scoreboard players operation #vAi swMath_V = xt swMath_V
@@ -36,6 +37,7 @@ scoreboard players operation #x0_0 swMath_V = #vOut swMath_V
 scoreboard players operation #x0_1 swMath_V = yt swMath_V
 scoreboard players operation #x0_1 swMath_V -= y0 swMath_V
 
+#tellraw @a [{"score":{"name": "#x0_1", "objective": "swMath_V"}}]
 
 # get velocity of target in the relative axes.
 
@@ -110,16 +112,16 @@ scoreboard players operation #x0_5 swMath_V /= #C_3 swMath_C
 
 #tellraw @a [{"text":"T0 "},{"score":{"name": "#x0_5", "objective": "swMath_V"}}]
 
-#function mlp:classes/networks/mlp_bow_tsolver_1.5_v01
-function mlp:classes/networks/old_versions/mlp_bow_tsolver_1.5_v00
+function mlp:classes/networks/mlp_bow_tsolver_1.5_v01
+#function mlp:classes/networks/old_versions/mlp_bow_tsolver_1.5_v00
 scoreboard players operation Tlead swMath_V = #x_out swMath_V
 #tellraw @a [{"text":"Tn "},{"score":{"name": "#x_out", "objective": "swMath_V"}}]
 
-
+#scoreboard players set Tlead swMath_V 0
 # get new position
-scoreboard players operation xnew swMath_V = @e[tag=target,limit=1] swNN_x
-scoreboard players operation ynew swMath_V = @e[tag=target,limit=1] swNN_y
-scoreboard players operation znew swMath_V = @e[tag=target,limit=1] swNN_z
+scoreboard players operation xnew swMath_V = xt swMath_V
+scoreboard players operation ynew swMath_V = yt swMath_V
+scoreboard players operation znew swMath_V = zt swMath_V
 
 scoreboard players operation dxnew swMath_V = vxt swMath_V
 scoreboard players operation dynew swMath_V = vyt swMath_V
@@ -146,21 +148,7 @@ scoreboard players operation znew swMath_V += dznew swMath_V
 
 ##### AIM USING ANGLE CALCULATION ON NEW LOCATION
 
-# This function assumes the executor marked an entity with tag=target.
-# This function uses a mlp to find out the aiming angle, so that the executor can hit the target with bow and arrow.
 
-
-# record position of executor and target
-#execute store result score x0 swMath_V run data get entity @s Pos[0] 10000
-#execute store result score y0 swMath_V run data get entity @s Pos[1] 10000
-#execute store result score z0 swMath_V run data get entity @s Pos[2] 10000
-
-# add feet-eye distance if executor is player.
-#execute if entity @s[type=player] run scoreboard players add y0 swMath_V 15200
-
-#execute store result score xt swMath_V run data get entity @e[tag=target,limit=1] Pos[0] 10000
-#execute store result score yt swMath_V run data get entity @e[tag=target,limit=1] Pos[1] 10000
-#execute store result score zt swMath_V run data get entity @e[tag=target,limit=1] Pos[2] 10000
 
 scoreboard players operation xt swMath_V = xnew swMath_V
 scoreboard players operation yt swMath_V = ynew swMath_V

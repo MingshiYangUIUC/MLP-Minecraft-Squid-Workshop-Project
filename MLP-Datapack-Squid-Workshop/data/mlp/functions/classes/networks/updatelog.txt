@@ -1,8 +1,10 @@
 Benchmark Score Info:
-    The time spent to kill 40 vexes by constantly launching 10 arrows per second. 
+    The time spent to kill 20 vexes by constantly launching 20 arrows per second. 
     The scores are expressed as mean (standard error), lower scores are better.
 
-mlp_bow_tsolver_1.5_v01 Score: 456 (20)
+mlp_bow_tsolver_1.5_v01 Score: 326.4 (11)
+    Entries:
+        290, 305, 405, 318, 292, 340, 335, 315, 363, 301
     RMSE:
         0.006 ticks
     Architecture:
@@ -10,7 +12,9 @@ mlp_bow_tsolver_1.5_v01 Score: 456 (20)
         Input(6) - Linear(32) ReLU - Linear(16) Relu - Linear(16) Relu - Linear(16) Relu - Linear(1)
         
 
-mlp_bow_tsolver_1.5_v00 Score: 478 (18)
+mlp_bow_tsolver_1.5_v00 Score: 322.5 (11)
+    Entries:
+        283, 341, 274, 372, 291, 330, 293, 353, 317, 371
     RMSE:
         0.006 ticks
     Architecture:

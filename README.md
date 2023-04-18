@@ -68,7 +68,7 @@ The player will rotate to the direction determined by the Aimbot.
 ### Specs
 - Network RMSE: ~0.006 ticks.
 
-- The latest network _v01_ is considerably smaller in parameter size, and performs slightly better than _v00_.\
+- The latest network _v01_ is considerably smaller in parameter size, and performs matches _v00_.\
 Networks except the latest version are stored under old_versions subfolder.
 See MLP-Datapack-Squid-Workshop/data/mlp/functions/classes/networks/updatelog.txt for more information.
 
