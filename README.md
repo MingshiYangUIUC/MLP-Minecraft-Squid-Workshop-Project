@@ -44,7 +44,7 @@ The player will rotate to the direction determined by the Aimbot.
 ### Specs
 - Network RMSE: ~0.006 degrees.
 
-- The MLP takes input of size 3, performs 1446 scoreboard operations, and output 1 scalar. There are 2 hidden layers with sizes 16. Hidden layers have ReLU activation.
+- The MLP takes input of size 3, performs more than one thousand scoreboard operations, and output 1 scalar. There are 2 hidden layers with sizes 16. Hidden layers have ReLU activation.
 
 - The first and second inputs are hozirontal and vertical distance components, the Aimbot uses these to determine the pitch angle when facing the target and uses it as the thrid input. The output is negative of desired x_rotation. The values are scaled up to keep accuracy.
 
