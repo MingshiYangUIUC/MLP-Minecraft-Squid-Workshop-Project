@@ -1,6 +1,9 @@
 # This function assumes the executor marked an entity with tag=target.
 # This function also requires 3d velocity as vxt, vyt, and vzt
 
+scoreboard players operation tracking0 swMath_V = tracking swMath_V
+execute store result score tracking swMath_V run data get entity @e[tag=target,limit=1] UUID[0]
+
 execute as @e[tag=target,limit=1] at @s run function mlp:classes/supp/getdpdt
 
 # This function uses a mlp to find out the time lead, so that the executor can hit the target with bow and arrow.
@@ -112,10 +115,13 @@ scoreboard players operation #x0_5 swMath_V /= #C_3 swMath_C
 
 #tellraw @a [{"text":"T0 "},{"score":{"name": "#x0_5", "objective": "swMath_V"}}]
 
-function mlp:classes/networks/mlp_bow_tsolver_1.5_v01
+execute if score tracking swMath_V = tracking0 swMath_V run function mlp:classes/networks/mlp_bow_tsolver_1.5_v01
 #function mlp:classes/networks/old_versions/mlp_bow_tsolver_1.5_v00
-scoreboard players operation Tlead swMath_V = #x_out swMath_V
+execute if score tracking swMath_V = tracking0 swMath_V run scoreboard players operation Tlead swMath_V = #x_out swMath_V
 #tellraw @a [{"text":"Tn "},{"score":{"name": "#x_out", "objective": "swMath_V"}}]
+
+execute unless score tracking swMath_V = tracking0 swMath_V run scoreboard players set Tlead swMath_V 0
+
 
 #scoreboard players set Tlead swMath_V 0
 # get new position
@@ -198,3 +204,8 @@ execute store result entity @e[type=marker,tag=guide,limit=1] Rotation[1] float 
 execute as @e[type=marker,tag=guide,limit=1] at @s run tp @s ^ ^ ^1
 tp @s ~ ~ ~ facing entity @e[type=marker,tag=guide,limit=1]
 kill @e[type=marker,tag=guide,limit=1]
+execute if entity @s[type=armor_stand] run data merge entity @s {Pose:{Head:[0.001f,0.0f,0.0f]}}
+#scoreboard players remove #x_out swMath_V 300000
+scoreboard players operation #x_out swMath_V %= #C_3600000 swMath_C
+#tellraw @a [{"text":"pose "},{"score":{"name": "#x_out", "objective": "swMath_V"}}]
+execute store result entity @s[type=armor_stand] Pose.Head[0] float -0.0001 run scoreboard players get #x_out swMath_V
