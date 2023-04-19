@@ -1,5 +1,7 @@
 # MLP-Minecraft-Squid-Workshop-Project
 
+Currently features an aiming assist mechanism that guides Minecraft bow Users.
+
 *This datapack's functionality requires [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project). Please include its latest version in your datapack directory.*
 
 # Introduction
@@ -42,7 +44,7 @@ The player will rotate to the direction determined by the Aimbot.
 ### Specs
 - Network RMSE: ~0.006 degrees.
 
-- The MLP takes input of size 3, performs 1446 scoreboard operations, and output 1 scalar. There are 2 hidden layers with sizes 16. Hidden layers have ReLU activation.
+- The MLP takes input of size 3, performs more than one thousand scoreboard operations, and output 1 scalar. There are 2 hidden layers with sizes 16. Hidden layers have ReLU activation.
 
 - The first and second inputs are hozirontal and vertical distance components, the Aimbot uses these to determine the pitch angle when facing the target and uses it as the thrid input. The output is negative of desired x_rotation. The values are scaled up to keep accuracy.
 
@@ -68,8 +70,8 @@ The player will rotate to the direction determined by the Aimbot.
 ### Specs
 - Network RMSE: ~0.006 ticks.
 
-- The latest network _v01_ is considerably smaller in parameter size, and performs matches _v00_.\
-Networks except the latest version are stored under old_versions subfolder.
+- The latest network _v01_ is considerably smaller in parameter size, and it's performance matches the previous network _v00_.\
+Networks except the latest version are stored under old_versions subfolder.\
 See MLP-Datapack-Squid-Workshop/data/mlp/functions/classes/networks/updatelog.txt for more information.
 
 - The MLP takes input of size 6, performs thousands of scoreboard operations, and output 1 scalar. There are several hidden layers with varying sizes. Hidden layers and output layer have ReLU activation.
