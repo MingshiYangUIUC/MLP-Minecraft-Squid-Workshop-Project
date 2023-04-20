@@ -12661,7 +12661,7 @@ scoreboard players operation #wl_015 swMath_V *= #x3_15 swMath_V
 scoreboard players operation #wl_015 swMath_V /= #div1 swMath_V
 scoreboard players operation #x4_0 swMath_V += #wl_015 swMath_V
 scoreboard players operation #x4_0 swMath_V += #bl_0 swMath_V
-
+execute if score #x4_0 swMath_V matches ..-1 run scoreboard players set #x5_0 swMath_V 0
 
 
 
