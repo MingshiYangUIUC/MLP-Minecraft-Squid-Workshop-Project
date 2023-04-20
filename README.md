@@ -1,6 +1,6 @@
 # MLP-Minecraft-Squid-Workshop-Project
 
-Currently features an aiming assist mechanism that guides Minecraft bow Users.
+Currently features an aiming assist mechanism that guides Minecraft bow Users. [How is it trained?](https://github.com/MingshiYangUIUC/Minecraft-MLP-Trainer)
 
 *This datapack's functionality requires [Math Datapack](https://github.com/MingshiYangUIUC/Math-Minecraft-Squid-Workshop-Project). Please include its latest version in your datapack directory.*
 
