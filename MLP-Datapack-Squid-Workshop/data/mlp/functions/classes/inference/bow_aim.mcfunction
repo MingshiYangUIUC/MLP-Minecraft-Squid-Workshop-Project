@@ -9,6 +9,7 @@ execute store result score z0 swMath_V run data get entity @s Pos[2] 10000
 
 # add feet-eye distance if executor is player.
 execute if entity @s[type=player] run scoreboard players add y0 swMath_V 15200
+execute if entity @s[type=armor_stand] run scoreboard players add y0 swMath_V 15200
 
 #execute store result score xt swMath_V run data get entity @e[tag=target,limit=1] Pos[0] 10000
 #execute store result score yt swMath_V run data get entity @e[tag=target,limit=1] Pos[1] 10000
@@ -40,7 +41,7 @@ scoreboard players operation #x0_2 swMath_V = #vOut swMath_V
 execute if score #x0_2 swMath_V matches 1800000.. run scoreboard players remove #x0_2 swMath_V 3600000
 
 # evaluate pitch angle using the network
-function mlp:classes/networks/mlp_bow_asolver
+function mlp:classes/networks/mlp_bow_asolver_0.0_v00
 
 # change player's rotation using tp with an helper entity
 summon marker ~ ~ ~ {Tags:["guide"]}
@@ -49,3 +50,6 @@ execute store result entity @e[type=marker,tag=guide,limit=1] Rotation[1] float 
 execute as @e[type=marker,tag=guide,limit=1] at @s run tp @s ^ ^ ^1
 tp @s ~ ~ ~ facing entity @e[type=marker,tag=guide,limit=1]
 kill @e[type=marker,tag=guide,limit=1]
+execute if entity @s[type=armor_stand] run data merge entity @s {Pose:{Head:[0.001f,0.0f,0.0f]}}
+scoreboard players operation #x_out swMath_V %= #C_3600000 swMath_C
+execute store result entity @s[type=armor_stand] Pose.Head[0] float -0.0001 run scoreboard players get #x_out swMath_V

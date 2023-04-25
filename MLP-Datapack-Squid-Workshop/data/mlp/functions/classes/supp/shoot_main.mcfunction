@@ -12,7 +12,7 @@ execute at @s positioned ^ ^ ^-3 run scoreboard players operation aay0 swMath_V 
 execute at @s positioned ^ ^ ^-3 run scoreboard players operation aaz0 swMath_V -= aaz swMath_V
 execute at @s positioned ^ ^ ^-3 run kill @e[tag=v,distance=..0.1]
 
-execute at @s run summon arrow ~ ~1.52 ~ {damage:20,PierceLevel:2,Rotation:[-0.0f,0.0f]}
+execute at @s run summon arrow ~ ~1.52 ~ {damage:20,PierceLevel:0,Rotation:[-0.0f,0.0f]}
 execute store result score r0 swMath_V run data get entity @s Rotation[0] -10000
 execute positioned ~ ~1.52 ~ store result entity @e[type=arrow,limit=1,sort=nearest] Rotation[0] float 0.0001 run scoreboard players get r0 swMath_V
 execute store result score r0 swMath_V run data get entity @s Rotation[1] -10000
