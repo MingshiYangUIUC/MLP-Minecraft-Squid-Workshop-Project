@@ -25,9 +25,9 @@ Don't forget to install the [Math Datapack](https://github.com/MingshiYangUIUC/M
 # How to use
 
 Check out the features below. Feel free to suggest more!
-- Bow&Arrow Aim Guide with NNs
-- Advanced Bow&Arrow Aimbot Fully Guided by NNs
-- Advanced Bow&Arrow Aimbot Partly Guided by NNs
+- [Bow&Arrow Aim Guide with NNs](https://github.com/MingshiYangUIUC/MLP-Minecraft-Squid-Workshop-Project/blob/main/Documentation/NN-Aim-Guide.md)
+- [Advanced Bow&Arrow Aimbot Fully Guided by NNs](https://github.com/MingshiYangUIUC/MLP-Minecraft-Squid-Workshop-Project/blob/main/Documentation/Full-NN-Aim-Bot.md)
+- [Advanced Bow&Arrow Aimbot Partly Guided by NNs](https://github.com/MingshiYangUIUC/MLP-Minecraft-Squid-Workshop-Project/blob/main/Documentation/Half-NN-Aim-Bot.md)
 
 # Terms of Use
 
